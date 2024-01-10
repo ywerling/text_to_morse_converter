@@ -52,3 +52,21 @@ morse_dict = {
                 '!': ' ▄▄▄ ▄ ▄▄▄ ▄ ▄▄▄ ▄▄▄ ',
 }
 
+def morse_encode(text):
+    #prepares the string for conversion, make it all lower case and remove non-allowed characters
+    temp=text.lower()
+
+    #the encoded message can start either as blank or with the code of the starting signal
+    #encoded_text=STARTING_SIGNAL
+    encoded_text=''
+
+    for char in temp:
+        try:
+            encoded_text+=morse_dict[char]
+        except KeyError as ke:
+    # if the charcater is unknown a single space will be added
+            encoded_text +=' '
+
+    return encoded_text
+
+
